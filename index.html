@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>type.engineering — coming soon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --teal-900: #0e3d39;
+      --teal-800: #163533;
+      --teal-600: #1a5c55;
+      --teal-400: #2a8c82;
+      --teal-200: #a0d4ce;
+      --teal-100: #d0eeeb;
+      --teal-50:  #eef8f7;
+      --bg: #f5fafa;
+      --fg: var(--teal-900);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0a1f1e;
+        --fg: #d0eeeb;
+        --teal-50: #0f2a28;
+        --teal-100: #163533;
+      }
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: 'IBM Plex Mono', 'Courier New', monospace;
+      background: var(--bg);
+      color: var(--fg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* subtle grid background */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--teal-100) 1px, transparent 1px),
+        linear-gradient(90deg, var(--teal-100) 1px, transparent 1px);
+      background-size: 40px 40px;
+      opacity: 0.35;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3rem;
+      max-width: 640px;
+      width: 100%;
+      text-align: center;
+    }
+
+    /* ── Logo wrapper ── */
+    .logo-wrap {
+      animation: pulse 3.2s cubic-bezier(.4,0,.6,1) infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1;   transform: scale(1); }
+      50%       { opacity: 0.55; transform: scale(0.91); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .logo-wrap { animation: none; }
+    }
+
+    .logo-wrap svg {
+      width: auto;
+      height: 72px;
+    }
+
+    /* make all logo fills/strokes respect dark mode */
+    .logo-wrap svg [style*="fill:#0e3d39"],
+    .logo-wrap svg [style*="fill: #0e3d39"] {
+      fill: var(--fg) !important;
+    }
+    .logo-wrap svg [style*="stroke:#163533"],
+    .logo-wrap svg [style*="stroke: #163533"] {
+      stroke: var(--fg) !important;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      width: 1px;
+      height: 40px;
+      background: var(--teal-400);
+      opacity: 0.4;
+    }
+
+    /* ── Text block ── */
+    .text-block {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .eyebrow {
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--teal-400);
+      font-weight: 400;
+    }
+
+    h1 {
+      font-size: clamp(1.6rem, 5vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--fg);
+    }
+
+    .sub {
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: var(--teal-600);
+      max-width: 38ch;
+      margin: 0 auto;
+      font-weight: 400;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .sub { color: var(--teal-200); }
+    }
+
+    /* ── Blinking cursor ── */
+    .cursor {
+      display: inline-block;
+      width: 0.55em;
+      height: 1em;
+      background: var(--teal-400);
+      vertical-align: text-bottom;
+      margin-left: 2px;
+      animation: blink 1s step-end infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0; }
+    }
+
+    /* ── Footer note ── */
+    .footer-note {
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: var(--teal-400);
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="logo-wrap" aria-label="type.engineering logo">
+      <svg
+        width="12.5mm"
+        height="5mm"
+        viewBox="0 0 12.499574 4.9998288"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(-8.6965647,-19.011618)">
+          <g transform="translate(0.3088919,0.26482306)">
+            <text
+              style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23319px;font-family:'IBM Plex Mono';fill:#0e3d39;fill-opacity:1;stroke:none"
+              x="8.9620638"
+              y="22.253902">type </text>
+            <circle
+              style="fill:#0e3d39;fill-opacity:1;stroke:none"
+              cx="19.629908"
+              cy="22.0114"
+              r="0.29998973" />
+            <rect
+              style="fill:#0e3d39;fill-opacity:1;stroke:none"
+              width="1.4729961"
+              height="0.48500353"
+              x="10.67582"
+              y="21.768898" />
+            <rect
+              style="fill:#0e3d39;fill-opacity:1;stroke:none"
+              width="2.2929499"
+              height="0.485358"
+              x="13.32156"
+              y="21.819122" />
+            <rect
+              style="fill:none;stroke:#163533;stroke-width:0.0999981;stroke-opacity:1"
+              width="11.599975"
+              height="4.1883693"
+              x="8.92838"
+              y="19.243433" />
+            <rect
+              style="fill:#0e3d39;fill-opacity:1;stroke:none"
+              width="1.088251"
+              height="0.48723954"
+              x="8.6965647"
+              y="20.068495" />
+            <rect
+              style="fill:#0e3d39;fill-opacity:1;stroke:none"
+              width="1.374524"
+              height="0.57526022"
+              x="19.011618"
+              y="-10.36007"
+              transform="rotate(90)" />
+          </g>
+        </g>
+      </svg>
+    </div>
+
+    <div class="divider" aria-hidden="true"></div>
+
+    <div class="text-block">
+      <p class="eyebrow">coming soon</p>
+      <h1>something is being<br>built here...<span class="cursor" aria-hidden="true"></span></h1>
+      <p class="sub">Check back soon.</p>
+    </div>
+
+    <p class="footer-note">type.engineering</p>
+
+  </div>
+</body>
+</html>
